@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliDB Enterprise Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004999;
+            --background-color: #f5f7fa;
+            --text-color: #2c3e50;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--background-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 85vh;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .chat-header .logo {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-header .logo i {
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .chat-header .info h1 {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .chat-header .info p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .chat-messages {
+            padding: 20px;
+            overflow-y: auto;
+            background: #fafbfc;
+        }
+
+        .message {
+            max-width: 80%;
+            margin: 15px 0;
+            padding: 15px 20px;
+            border-radius: 15px;
+            line-height: 1.5;
+            font-size: 15px;
+            animation: messageSlide 0.3s ease;
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background: white;
+            color: var(--text-color);
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .chat-input {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .chat-input button {
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-input button:hover {
+            background: var(--secondary-color);
+        }
+
+        .typing-indicator {
+            color: #666;
+            font-style: italic;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 20px;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- <header class="chat-header">
+            <div class="logo">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="info">
+                <h1>IntelliDB Enterprise Assistant</h1>
+                <p>24/7 Enterprise Support</p>
+            </div>
+        </header> -->
+        <header class="chat-header">
+            <div class="logo">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="info">
+                <h1>IntelliDB Enterprise Assistant</h1>
+                <p>Your AI-Powered Database Management Partner</p>
+            </div>
+        </header>
+        
+        <div class="chat-messages" id="chatBox"></div>
+
+        <div class="chat-input">
+            <input 
+                type="text" 
+                id="userInput" 
+                placeholder="Ask about IntelliDB Enterprise features..."
+                autocomplete="off"
+            >
+            <button id="sendBtn">
+                <i class="fas fa-paper-plane"></i>
+                <span>Send</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
