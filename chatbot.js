@@ -15,6 +15,22 @@ const predefinedResponses = {
         </div>`
     },
 
+    "greeting": {
+        keywords: ["hi", "hello", "namaste", "hey", "greetings", "good morning", "good evening"],
+        response: `<div class="greeting-message">
+            <h3>🙏 Namaste! 👋 Hello!</h3>
+            <p>Welcome to IntelliDB! How can I assist you today?</p>
+            <ul>
+                <li>✓ Ask about <b>IntelliDB Enterprise</b> features.</li>
+                <li>✓ Learn more about <b>AI-driven performance optimization.</b></li>
+                <li>✓ Explore <b>Oracle to IntelliDB migration solutions.</b></li>
+                <li>✓ Get insights into <b>security, cloud deployment, and automation.</b></li>
+                <li>✓ Need help? Ask about <b>troubleshooting & best practices.</b></li>
+            </ul>
+            <p class="tip">💡 Try asking: "<b>What makes IntelliDB different from PostgreSQL?</b>"</p>
+        </div>`
+    },
+    
     "security": {
         keywords: ["security", "compliance", "encryption", "access control"],
         response: `<div class="security-section">
