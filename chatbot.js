@@ -2,7 +2,7 @@ const predefinedResponses = {
     "intellidb enterprise": {
         keywords: ["intellidb", "enterprise", "overview", "about", "what is", "tell me about"],
         response: `<div class="feature-highlight">
-            <h3>🚀 IntelliDB Enterprise</h3>
+            <h3> IntelliDB Enterprise</h3>
             <p>IntelliDB Enterprise is an AI-enhanced database platform built on PostgreSQL, designed to empower data-driven enterprises with intelligent data management, high-speed transactions, and seamless integration capabilities.</p>
             <ul>
                 <li>✓ <b>AI-Powered Performance Optimization:</b> Leverages artificial intelligence to enhance database efficiency, including automated performance tuning and adaptive indexing.</li>
@@ -18,7 +18,7 @@ const predefinedResponses = {
     "greeting": {
         keywords: ["hi", "hello", "namaste", "hey", "greetings", "good morning", "good evening"],
         response: `<div class="greeting-message">
-            <h3>🙏 Namaste! 👋 Hello!</h3>
+            <h3> 👋 Hello!</h3>
             <p>Welcome to IntelliDB! How can I assist you today?</p>
             <ul>
                 <li>✓ Ask about <b>IntelliDB Enterprise</b> features.</li>
